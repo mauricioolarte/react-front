@@ -20,6 +20,8 @@ const SearchBar = ({ getData }) => {
 					datos: values.values
 				})
 			})
+
+		setplacehoderValue("")
 	}
 
 
