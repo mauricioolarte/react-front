@@ -1,38 +1,280 @@
-.App {
-  text-align: center;
+
+body {
+    margin: 0px;
+    font-family: 'Muli', sans-serif;
+    background-color: #04009a;
+    min-height: 1vh;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.header {
+    width: 100%;
+    height: 80px;
+    background-color: #04009a;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.header__img {
+    width: 200px;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+.header__menu {
+    margin-right: 30px;
+}
+.header__menu ul {
+    display: none;
+    list-style: none;
+    padding: 0px;
+    position: absolute;
+    width: 100px;
+    text-align: right;
+    margin: 0px 0px 0px -14px;
+}
+.header__menu:hover ul, ul:hover {
+    display: block;
+}
+.header__menu li {
+    margin: 10px 0px;
+}
+.header__menu li a{
+    color:white;
+    text-decoration: none;
+}
+.header__menu li a:hover{
+    text-decoration: underline;
+}
+.header__menu--profile {
+    margin-right: 8px;
+    display: flex;
+    cursor: pointer;
+    align-items: center;
+}
+.header__menu--profile img {
+    margin-right: 10px;
+    width: 40px;
+}
+.header__menu--profile p {
+    margin: 0px;
+    color: white;
+}
+.main {
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.main__title {
+    color: white;
+    font-size: 25px;
+}
+.main__input {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: white 2px solid;
+    border-radius: 25px;
+    color: white;
+    font-family: 'Muli', sans-serif;
+    font-size: 16px;
+    height: 50px;
+    padding: 5px 20px;
+    width: 70%;
+    outline: none;
+}
+.main__buscar {
+    background-color: #04009a;
+    border: white 2px solid;
+    border-radius: 25px;
+    color: white;
+    font-family: 'Muli', sans-serif;
+    font-size: 12px;
+    height: 25px;
+    padding: 5px 20px;
+    width: 25%;
+    outline: none;
+    margin: 4px;
+}
+::placeholder{
+    color: white;
+}
+.categories__title {
+    color: white;
+    font-size: 16px;
+    position: absolute;
+    padding-left: 30px;
+    width: 100%;
+}
+.carrousel {
+    max-whidth: 100%;
+    overflow: hidden;
+    padding: 30px;
+    position: relative;
+}
+.carrousel__container {
+    white-space: nowrap;
+    margin: 70px 0px;
+    padding-bottom: 10px;
+
+}
+.carrousel-item {
+    background-color: palevioletred;
+    width: 19%;
+    height: 250px;
+    border-radius: 20px;
+    overflow: hidden;
+    margin-right: 10px;
+    display: inline-block;
+    cursor: pointer;
+    transition: 450ms all;
+    transform-origin: center left;
+    position: relative;
+    overflow: hidden;
+}
+.carrousel-item:hover ~ .carrousel-item {
+    transform: translate3d(100px, 0, 0);
+}
+.carrousel__container:hover .carrousel-item {
+    opacity: 0.3;
+}
+.carrousel__container:hover .carrousel-item:hover {
+   transform: scale(1.5);
+   opacity: 1;
+}
+.carrousel-item__img {
+    width: 200;
+    height: 250;
+    object-fit: cover;
+}
+.carrousel-item__details {
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0) 100%);
+    font-size: 10px;
+    opacity: 0;
+    transition: 450ms opacity;
+    padding: 10px;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    bottom: 0px;
+    right: 0px;
+}
+.carrousel-item__details:hover {
+    opacity: 1;
+}
+.carrousel-item__details--img {
+    width: 20px;
+    height: 20px;
+    position: relative;
+    top: 170px;
+}
+.carrousel-item__details--title {
+    color: white;
+    width: 60%;
+    position: relative;
+    top: 170px;
+    margin: 0px;
+    padding-bottom: 5px;
+}
+.carrousel-item__details--subtitle {
+    color: white;
+    font-size: 10px;
+    width: 60%;
+    margin: 5px;
+    position: relative;
+    top: 165px;
+    margin: 0px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.input {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: white 2px solid;
+    border-radius: 25px;
+    color: white;
+    font-family: 'Muli', sans-serif;
+    font-size: 16px;
+    height: 50px;
+    padding: 0px 20px;
+    width: 70%;
+    outline: none;
+}
+::placeholder{
+    color: white;
+}
+.form{
+    width: 70%;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.footer {
+    font-family: 'Muli', sans-serif;
+    display: flex;
+    align-items: center;
+    height: 100px;
+    width: 100%;
+    background: #8f57fd;
+}
+.footer a {
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+    padding-left: 30px;
+    text-decoration: none;
+}
+.footer a:hover {
+    text-decoration: underline;
+}
+.footer {
+    font-family: 'Muli', sans-serif;
+    display: flex;
+    align-items: center;
+    height: 100px;
+    width: 100%;
+    background: #8f57fd;
+}
+.footer a {
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+    padding-left: 30px;
+    text-decoration: none;
+}
+.footer a:hover {
+    text-decoration: underline;
 }
 
-.App-link {
-  color: #61dafb;
+/* stilos carrousel infinito */
+
+.controles {
+    position: absolute;
+    top: 0;
+    z-index: 15;
+    height: 100%;
+    width: 100%;
+    pointer-events: none;
+
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.flechaDerecha,
+ .flechaIzquierda {
+
+    width: 50px;
+    height: 100%;
+    pointer-events: all;
+    background: none;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    z-index: 20;
+    outline: none;
+    text-align: center;
+    position: absolute;
 }
+
+.flechaDerecha {
+    right: 0;
+    margin-right: 20px;
+}
+
+.flechaIzquierda {
+    left: 0;
+    margin: 10px;
+}
+
