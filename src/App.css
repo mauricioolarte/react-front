@@ -112,7 +112,7 @@ body {
 }
 .carrousel__container {
     white-space: nowrap;
-    margin: 70px 0px;
+    margin: 70px 20px;
     padding-bottom: 10px;
 
 }
@@ -271,7 +271,7 @@ body {
 
 .flechaDerecha {
     right: 0;
-    margin-right: 20px;
+    margin: 10px;
 }
 
 .flechaIzquierda {

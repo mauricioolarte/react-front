@@ -1,7 +1,8 @@
 import React, { useRef, useEffect } from 'react'
 import { Card } from './card'
-import flechaDerecha from '../Images/derecha.svg'
-import flechaizquierda from '../Images/izquierda.svg'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faAngleLeft, faAngleRight } from '@fortawesome/free-solid-svg-icons'
+
 
 
 const Carousel = ({ showCarrusel = false, datos }) => {
@@ -78,43 +79,21 @@ const Carousel = ({ showCarrusel = false, datos }) => {
 		)
 	} else {
 		return (
-			<>
-				<section class="carrousel">
-					<div class="carrousel__container" ref={showCard}>
-						{listCard}
-						{/* <Card imageurl={datos.values[0].url}
-							messaje={datos.values[0].message} title={datos.values[0].title}
-						/> */}
-						{/* <Card imageurl={datos.values[0].url}
-							messaje={datos.values[0].message} title={datos[0].title}
-						/>
-						<Card imageurl={datos.values[0].url}
-							messaje={datos.values[0].message} title={datos[0].title}
-						/>
-						<Card imageurl={datos.values[0].url}
-							messaje={datos.values[0].message} title={datos.values[0].title}
-						/>
-						<Card imageurl={datos.values[0].url}
-							messaje={datos.values[0].message} title={datos.values[0].title}
-						/> */}
 
-					</div>
-					<div className="controles" >
-						<button className="flechaIzquierda" onClick={anterior}>
-							<imag src={flechaizquierda} /> "left"
+			<section class="carrousel">
+				<div class="carrousel__container" ref={showCard}>
+					{listCard}
+				</div>
+				<div className="controles" >
+					<button className="flechaIzquierda" onClick={anterior}>
+						<FontAwesomeIcon icon={faAngleLeft} size="3x" />
 					</button>
-						<button className="flechaDerecha" onClick={siguiente}>
-							<imag src={flechaDerecha} /> "right"
+					<button className="flechaDerecha" onClick={siguiente}>
+						<FontAwesomeIcon icon={faAngleRight} size="3x" />
 					</button>
 
-					</div>
-				</section>
-
-
-			</>
-
-
-
+				</div>
+			</section>
 
 		)
 	}
