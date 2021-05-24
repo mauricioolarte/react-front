@@ -1,4 +1,4 @@
-import React, { useRef } from 'react'
+import React, { useRef, useEffect } from 'react'
 import { Card } from './card'
 import flechaDerecha from '../Images/derecha.svg'
 import flechaizquierda from '../Images/izquierda.svg'
@@ -48,6 +48,21 @@ const Carousel = ({ showCarrusel = false, datos }) => {
 		}
 	}
 
+	const listCard = datos.values.map((dato) =>
+
+		<Card imageurl={dato.image_url}
+			messaje={dato.message} title={dato.title}
+		/>
+	)
+
+	useEffect(() => {
+		console.log('esto es datoscarrousel')
+		console.log(datos)
+		console.log(datos.values[0].url)
+	})
+
+
+
 	if (showCarrusel === false) {
 		return (
 			<>
@@ -66,21 +81,22 @@ const Carousel = ({ showCarrusel = false, datos }) => {
 			<>
 				<section class="carrousel">
 					<div class="carrousel__container" ref={showCard}>
-						<Card imageurl={datos.values[0].url}
+						{listCard}
+						{/* <Card imageurl={datos.values[0].url}
 							messaje={datos.values[0].message} title={datos.values[0].title}
+						/> */}
+						{/* <Card imageurl={datos.values[0].url}
+							messaje={datos.values[0].message} title={datos[0].title}
+						/>
+						<Card imageurl={datos.values[0].url}
+							messaje={datos.values[0].message} title={datos[0].title}
 						/>
 						<Card imageurl={datos.values[0].url}
 							messaje={datos.values[0].message} title={datos.values[0].title}
 						/>
 						<Card imageurl={datos.values[0].url}
 							messaje={datos.values[0].message} title={datos.values[0].title}
-						/>
-						<Card imageurl={datos.values[0].url}
-							messaje={datos.values[0].message} title={datos.values[0].title}
-						/>
-						<Card imageurl={datos.values[0].url}
-							messaje={datos.values[0].message} title={datos.values[0].title}
-						/>
+						/> */}
 
 					</div>
 					<div className="controles" >

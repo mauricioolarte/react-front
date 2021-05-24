@@ -1,5 +1,5 @@
 import './App.css';
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 
 
 
@@ -22,14 +22,17 @@ function App() {
   }
   const [dataApp, setData] = useState(data)
 
-
+  useEffect(() => {
+    console.log('esto es dataapp')
+    console.log(dataApp)
+  })
   return (
     <div className="App">
       <Header />
       <div>
-        <SearchBar getData={setData} />
+        <SearchBar getData={setData} datos={dataApp} />
       </div>
-      <Carousel showCarrusel={dataApp.isData} datos={data} />
+      <Carousel showCarrusel={dataApp.isData} datos={dataApp} />
       <Footer />
     </div>
   );
