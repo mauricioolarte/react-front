@@ -1,13 +1,16 @@
-import React, { useRef, useEffect } from 'react'
+import React, { useRef, useContext } from 'react'
 import { Card } from './card'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faAngleLeft, faAngleRight } from '@fortawesome/free-solid-svg-icons'
+import DataContext from '../utils/Datacontext'
 
 
 
 const Carousel = ({ showCarrusel = false, datos }) => {
 
 	const showCard = useRef(null)
+
+	const { dataApp } = useContext(DataContext);
 
 	const siguiente = () => {
 		if (showCard.current.children.length > 0) {
@@ -28,7 +31,6 @@ const Carousel = ({ showCarrusel = false, datos }) => {
 
 		}
 		console.log(showCard)
-
 	}
 
 	const anterior = () => {
@@ -49,26 +51,21 @@ const Carousel = ({ showCarrusel = false, datos }) => {
 		}
 	}
 
-	const listCard = datos.values.map((dato) =>
+
+	console.log('esto es litcard')
+	const listCard = dataApp.values.map((dato) =>
 
 		<Card imageurl={dato.image_url}
 			messaje={dato.message} title={dato.title}
 		/>
 	)
 
-	useEffect(() => {
-		console.log('esto es datoscarrousel')
-		console.log(datos)
-		console.log(datos.values[0].url)
-	})
-
-
 
 	if (showCarrusel === false) {
 		return (
 			<>
-				<section class="carrousel">
-					<div class="carrousel__container" ref={showCard}>
+				<section className="carrousel">
+					<div className="carrousel__container" ref={showCard}>
 
 					</div>
 					<div className="controles" >
@@ -80,8 +77,8 @@ const Carousel = ({ showCarrusel = false, datos }) => {
 	} else {
 		return (
 
-			<section class="carrousel">
-				<div class="carrousel__container" ref={showCard}>
+			<section className="carrousel">
+				<div className="carrousel__container" ref={showCard}>
 					{listCard}
 				</div>
 				<div className="controles" >

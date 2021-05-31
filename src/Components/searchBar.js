@@ -4,7 +4,7 @@ import axios from 'axios'
 
 
 
-const SearchBar = ({ getData, data }) => {
+const SearchBar = ({ getData, datos }) => {
 
 	const [searchWords, setsearchWords] = useState("");
 	const [placeholderValue, setplacehoderValue] = useState("buscar...");
@@ -12,18 +12,23 @@ const SearchBar = ({ getData, data }) => {
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		console.log(searchWords);
-		axios.post('http://localhost:8080/api/search', { words: searchWords })
+		if (searchWords.length > 0 && searchWords.length < 3) {
+			alert('La busqueda debe contener al menos 3 caracteres')
+		}
+		await axios.post('http://localhost:8080/api/search', { words: searchWords })
 			.then((values) => {
-				console.log('consulta')
 
 				console.log(values.data.values)
 				getData({
 					isData: true,
 					values: values.data.values
 				})
-				console.log(data)
 			})
-
+			.catch((error) => {
+				console.log(error)
+				alert('Su busqueda no arroja resultados')
+			});
+		console.log(datos)
 		setplacehoderValue("")
 	}
 
